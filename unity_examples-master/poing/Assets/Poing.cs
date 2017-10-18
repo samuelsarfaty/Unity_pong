@@ -70,7 +70,8 @@ public class Poing : MonoBehaviour {
         Ball.transform.position = LeftBat.transform.position + new Vector3(1, 0, 0);
         if (Input.GetKey("d")) {
           state = State.Playing;
-          BallVel = new Vector3(BallSpeed, BallSpeed, 0);
+          //BallVel = new Vector3(BallSpeed, BallSpeed, 0);
+			BallVel = new Vector3(BallSpeed, 0, 0);
         }
         break;
 
@@ -104,9 +105,18 @@ public class Poing : MonoBehaviour {
         Vector3 leftDiff = (t.position - LeftBat.transform.position);
         Vector3 rightDiff = (t.position - RightBat.transform.position);
         if (BallVel.x < 0 && Mathf.Abs(leftDiff.x) < 0.4f && Mathf.Abs(leftDiff.y) < 0.8f) {
-          BallVel = new Vector3(BallSpeed, BallVel.y, 0);
+				if (Input.GetKey ("space")) {
+					BallVel = new Vector3 (BallSpeed * 2, BallVel.y, 0);
+				} else {
+					BallVel = new Vector3 (BallSpeed, BallVel.y, 0);
+				}
+          
         } else if (BallVel.x > 0 && Mathf.Abs(rightDiff.x) < 0.4f && Mathf.Abs(rightDiff.y) < 0.8f) {
-          BallVel = new Vector3(-BallSpeed, BallVel.y, 0);
+				if (Input.GetKey ("space")) {
+					BallVel = new Vector3 (-BallSpeed * 2, BallVel.y, 0);
+				} else {
+					BallVel = new Vector3 (-BallSpeed, BallVel.y, 0);
+				}
         }
 
         // score
