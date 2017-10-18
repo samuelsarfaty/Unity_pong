@@ -22,6 +22,7 @@ public class Poing : MonoBehaviour {
   public float BallSpeed = 8.0f;
   public float CourtHeight = 3.0f;
   public float CourtWidth = 8.5f;
+  public float extraPower = 2.0f;
 
   // Current ball velocity
   public Vector3 BallVel = new Vector3(0, 0, 0);
@@ -104,15 +105,15 @@ public class Poing : MonoBehaviour {
         Vector3 leftDiff = (t.position - LeftBat.transform.position);
         Vector3 rightDiff = (t.position - RightBat.transform.position);
         if (BallVel.x < 0 && Mathf.Abs(leftDiff.x) < 0.4f && Mathf.Abs(leftDiff.y) < 0.8f) {
-				if (Input.GetKey ("a")) {
-					BallVel = new Vector3 (BallSpeed * 2, BallVel.y, 0);
+				if (Input.GetKey ("a") && !((Input.GetKey("w")) || (Input.GetKey("s"))))  {
+					BallVel = new Vector3 (BallSpeed * extraPower, BallVel.y, 0);
 				} else {
 					BallVel = new Vector3 (BallSpeed, BallVel.y, 0);
 				}
           
         } else if (BallVel.x > 0 && Mathf.Abs(rightDiff.x) < 0.4f && Mathf.Abs(rightDiff.y) < 0.8f) {
-				if (Input.GetKey ("right")) {
-					BallVel = new Vector3 (-BallSpeed * 2, BallVel.y, 0);
+				if (Input.GetKey ("right") && !((Input.GetKey("up")) || (Input.GetKey("down")))) {
+					BallVel = new Vector3 (-BallSpeed * extraPower, BallVel.y, 0);
 				} else {
 					BallVel = new Vector3 (-BallSpeed, BallVel.y, 0);
 				}
