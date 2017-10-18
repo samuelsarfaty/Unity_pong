@@ -663,13 +663,15 @@ MonoBehaviour:
   Ball: {fileID: 1826150441}
   LeftBat: {fileID: 754898390}
   RightBat: {fileID: 484353764}
+  explosion: {fileID: 1360115957781610, guid: d95e60c92d1ddab43bf2bfae9661e5c6, type: 2}
   LeftText: {fileID: 1193587612}
   RightText: {fileID: 1329554564}
   DeltaT: 0.016666668
   BatSpeed: 4
-  BallSpeed: 8
+  BallSpeed: 4
   CourtHeight: 3
   CourtWidth: 8.5
+  extraPower: 2
   BallVel: {x: 0, y: 0, z: 0}
   state: 0
 --- !u!1 &1826150441

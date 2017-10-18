@@ -9,6 +9,7 @@ public class Poing : MonoBehaviour {
   public GameObject Ball;
   public GameObject LeftBat;
   public GameObject RightBat;
+  public GameObject explosion;
 
   // The scores
   public Text LeftText;
@@ -107,6 +108,7 @@ public class Poing : MonoBehaviour {
         if (BallVel.x < 0 && Mathf.Abs(leftDiff.x) < 0.4f && Mathf.Abs(leftDiff.y) < 0.8f) {
 				if (Input.GetKey ("a") && !((Input.GetKey("w")) || (Input.GetKey("s"))))  {
 					BallVel = new Vector3 (BallSpeed * extraPower, BallVel.y, 0);
+					Instantiate (explosion, t.position, Quaternion.identity);
 				} else {
 					BallVel = new Vector3 (BallSpeed, BallVel.y, 0);
 				}
@@ -114,6 +116,7 @@ public class Poing : MonoBehaviour {
         } else if (BallVel.x > 0 && Mathf.Abs(rightDiff.x) < 0.4f && Mathf.Abs(rightDiff.y) < 0.8f) {
 				if (Input.GetKey ("right") && !((Input.GetKey("up")) || (Input.GetKey("down")))) {
 					BallVel = new Vector3 (-BallSpeed * extraPower, BallVel.y, 0);
+					Instantiate (explosion, t.position, Quaternion.identity);
 				} else {
 					BallVel = new Vector3 (-BallSpeed, BallVel.y, 0);
 				}
