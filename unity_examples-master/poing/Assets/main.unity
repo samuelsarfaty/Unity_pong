@@ -668,7 +668,7 @@ MonoBehaviour:
   RightText: {fileID: 1329554564}
   DeltaT: 0.016666668
   BatSpeed: 4
-  BallSpeed: 8
+  BallSpeed: 7
   CourtHeight: 3
   CourtWidth: 8.5
   extraPower: 2
